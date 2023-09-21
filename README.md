@@ -16,7 +16,6 @@ git clone https://github.com/iChainBlock/ichain-rpc.git
 cd ichain-rpc
 
 ```
-
 ### If necessary, setup Docker and docker-compose:
 If you are using Ubuntu 22.04, run the following command which will do all the needed work:
 If you are using Ubuntu 20.04 run `pre-setup2004.sh` instead
@@ -25,20 +24,17 @@ If you are using Ubuntu 20.04 run `pre-setup2004.sh` instead
 ./pre-setup2204.sh
 
 ```
-
 ### Run docker-compose to bring up the node container:
 Use the following command with the -d option to detach the container. This way it will keep running even if you close the terminal:
 ```
 docker-compose up -d
 
 ```
-
 To check that the container is running, use:
 
-```json
+```
 docker ps
 ```
-
 This will display the running container. 
 
 ## Checking setup:
@@ -64,8 +60,10 @@ In the tools folder you can find useful tools:
 ```
 Mainnet RPC URL: https://rpc.ichainscan.com
 Mainnet Block Explorer: https://ichainscan.com
+Testnet ChainID: 3636
 ---------------------------------------------------------------
 Testnet RPC URL: https://istanbul.ichainscan.com
 Testnet Block Explorer: https://test.ichainscan.com
+Testnet ChainID: 3645
 ```
 
