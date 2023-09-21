@@ -1,0 +1,40 @@
+---
+version: '3.6'
+
+services:
+ rpcnode:
+  restart: "on-failure"
+  healthcheck:
+    test: ["CMD", "wget", "--spider", "--proxy", "off", "http://localhost:22000"]
+    interval: 3s
+    timeout: 3s
+    retries: 10
+    start_period: 5s
+  image: enterchain/ichain:rpc
+  entrypoint:
+   - /bin/sh
+   - -c
+   - |
+      UDS_WAIT=10
+      geth \
+        --identity ichain-rpc \
+        --datadir data \
+        --nodiscover --miner.gasprice 5000000000000 \
+        --verbosity 3 \
+        --networkid 3636 \
+        --http \
+        --http.corsdomain "*" \
+        --http.vhosts "*" \
+        --http.addr 0.0.0.0 \
+        --http.port 22000 \
+        --http.api eth,debug,miner,net,txpool,personal,web3,istanbul \
+        --ws --ws.addr 0.0.0.0 --ws.port 32000 --ws.origins "*" \
+        --ws.api eth,trace,debug,net,txpool,personal,web3,istanbul \
+        --revertreason --raftdnsenable
+  container_name: ichainrpcnode
+  volumes:
+   - ./bootnodes/bootnodes.json:/data/static-nodes.json
+  ports:
+   - 22000:22000/tcp
+   - 32000:32000/tcp
+   - 30303:30303
