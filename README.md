@@ -60,7 +60,7 @@ In the tools folder you can find useful tools:
 ```
 Mainnet RPC URL: https://rpc.ichainscan.com
 Mainnet Block Explorer: https://ichainscan.com
-Testnet ChainID: 3636
+Testnet ChainID: 3639
 ---------------------------------------------------------------
 Testnet RPC URL: https://istanbul.ichainscan.com
 Testnet Block Explorer: https://test.ichainscan.com
