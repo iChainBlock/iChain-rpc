@@ -21,7 +21,7 @@ services:
         --datadir data \
         --nodiscover --miner.gasprice 5000000000000 \
         --verbosity 3 \
-        --networkid 3636 \
+        --networkid 3639 \
         --http \
         --http.corsdomain "*" \
         --http.vhosts "*" \
