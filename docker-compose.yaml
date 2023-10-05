@@ -19,7 +19,7 @@ services:
       geth \
         --identity ichain-rpc \
         --datadir data \
-        --nodiscover --miner.gasprice 5000000000000 \
+        --nodiscover \
         --verbosity 3 \
         --networkid 3639 \
         --http \
@@ -30,7 +30,10 @@ services:
         --http.api eth,debug,miner,net,txpool,personal,web3,istanbul \
         --ws --ws.addr 0.0.0.0 --ws.port 32000 --ws.origins "*" \
         --ws.api eth,trace,debug,net,txpool,personal,web3,istanbul \
-        --revertreason --raftdnsenable
+        --miner.gasprice 1000000000000000000
+        --rpc.txfeecap 1000000000000000000000
+        --rpc.gascap 50000000000
+        --raftdnsenable
   container_name: ichainrpcnode
   volumes:
    - ./bootnodes/bootnodes.json:/data/static-nodes.json
